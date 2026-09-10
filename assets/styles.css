@@ -319,55 +319,39 @@ a.cycle-card-title:hover { color: var(--pink); text-decoration: underline; }
 .section-tool-info .section-title { margin-bottom: 3px; }
 .section-tool-info .section-desc { margin-bottom: 0; }
 
-/* ─── Coach at a Glance (Coaching page) ─────────────────── */
+/* ─── I Move It coaching-day guide (Coaching page) ────────── */
 .field-guide-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 26px; }
 .fg-step { margin-bottom: 18px; }
 .fg-step:last-child { margin-bottom: 0; }
 .fg-step-label { font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
 
-.fg-daytype-grid, .fg-model-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.fg-model-grid { grid-template-columns: repeat(2, 1fr); max-width: 480px; }
+.fg-daytype-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
 
-.fg-daytype-btn, .fg-model-btn {
+.fg-daytype-btn {
   background: white; border: 1.5px solid var(--gray-200); border-radius: 10px;
   padding: 13px 14px; cursor: pointer; text-align: left;
   display: flex; flex-direction: column; gap: 3px;
   font-family: 'Roboto', sans-serif; transition: border-color 0.12s, background 0.12s;
 }
-.fg-daytype-btn:hover, .fg-model-btn:hover { border-color: var(--pink); background: var(--pink-light); }
-.fg-daytype-btn.active, .fg-model-btn.active { border-color: var(--pink); background: var(--pink-light); box-shadow: inset 0 0 0 1px var(--pink); }
-.fg-daytype-btn:focus-visible, .fg-model-btn:focus-visible { outline: 2.5px solid var(--navy); outline-offset: 2px; }
+.fg-daytype-btn:hover { border-color: var(--pink); background: var(--pink-light); }
+.fg-daytype-btn.active { border-color: var(--pink); background: var(--pink-light); box-shadow: inset 0 0 0 1px var(--pink); }
+.fg-daytype-btn:focus-visible { outline: 2.5px solid var(--navy); outline-offset: 2px; }
 .fg-btn-label { font-size: 13.5px; font-weight: 700; color: var(--navy); }
 .fg-btn-hint { font-size: 11.5px; color: var(--gray-400); }
-.fg-daytype-btn.active .fg-btn-hint, .fg-model-btn.active .fg-btn-hint { color: var(--pink-dark); }
+.fg-daytype-btn.active .fg-btn-hint { color: var(--pink-dark); }
 
 .fg-result { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--gray-100); }
 .fg-result-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
 .fg-result-title { font-size: 17px; font-weight: 700; color: var(--navy); }
-.fg-result-combo { font-size: 12.5px; font-weight: 700; color: var(--pink); background: var(--pink-light); padding: 4px 11px; border-radius: 999px; }
 
 .fg-block { margin-bottom: 16px; }
 .fg-block:last-of-type { margin-bottom: 0; }
 .fg-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-400); margin-bottom: 6px; }
-.fg-goal p { font-size: 14.5px; color: var(--gray-700); line-height: 1.6; font-weight: 500; }
-.fg-list { padding-left: 18px; list-style: disc; font-size: 13.5px; color: var(--gray-700); line-height: 1.6; }
-.fg-list li { margin-bottom: 4px; }
-.fg-list li:last-child { margin-bottom: 0; }
+.fg-text { font-size: 13.5px; color: var(--gray-700); line-height: 1.6; }
 
-.fg-routines-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-.fg-routine-link .fg-routine-tier {
-  display: block; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px;
-  margin-bottom: 2px;
-}
-.fg-routine-link:not(.pending) .fg-routine-tier { color: var(--pink); }
-.fg-routine-link.pending .fg-routine-tier { color: var(--gray-400); }
-
-.fg-whatifs { display: flex; flex-direction: column; gap: 8px; }
-.fg-whatif { font-size: 13.5px; color: var(--gray-700); line-height: 1.6; background: var(--navy-light); border-radius: 8px; padding: 10px 14px; }
-.fg-whatif strong { color: var(--navy); }
+.fg-print-btn { border: none; cursor: pointer; margin-top: 4px; }
 
 .fg-empty { font-size: 13px; color: var(--gray-400); font-style: italic; }
-.fg-draft-note { margin-top: 4px; font-size: 11px; color: var(--gray-300); font-style: italic; }
 
 /* ─── Pull quote ───────────────────────────────────────── */
 .pull-quote {
@@ -446,7 +430,6 @@ a.cycle-card-title:hover { color: var(--pink); text-decoration: underline; }
   .identity-grid { grid-template-columns: 1fr 1fr; }
   .action-grid { grid-template-columns: 1fr 1fr; }
   .fg-daytype-grid { grid-template-columns: 1fr; }
-  .fg-model-grid { grid-template-columns: 1fr; max-width: none; }
 }
 @media (max-width: 560px) {
   .cycle-grid { grid-template-columns: 1fr; }

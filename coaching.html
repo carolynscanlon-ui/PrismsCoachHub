@@ -5,7 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prisms Coach Hub · Coaching</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css?v=32" />
+  <link rel="stylesheet" href="assets/styles.css?v=33" />
+  <style>
+    /* Print Full Guide — page-scoped so it can't affect printing on any
+       other page. #print-guide is populated just-in-time by
+       coach-field-guide.js and only ever shown during print. */
+    .print-guide-page { display: none; }
+    @media print {
+      body * { visibility: hidden; }
+      .print-guide-page, .print-guide-page * { visibility: visible; }
+      .print-guide-page {
+        display: block; position: absolute; top: 0; left: 0; width: 100%;
+        padding: 0.4in; font-family: 'Roboto', sans-serif; color: #111827;
+      }
+      .print-guide-page .print-brand { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #4B5563; margin-bottom: 4px; }
+      .print-guide-page h1 { font-size: 22px; margin: 0 0 16px; color: #353C78; }
+      .print-guide-page .print-section { margin-bottom: 14px; break-inside: avoid; }
+      .print-guide-page h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; color: #DB1873; margin: 0 0 4px; }
+      .print-guide-page p { margin: 0; font-size: 13px; line-height: 1.5; }
+      .print-guide-page ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; }
+      .print-guide-page li { margin-bottom: 2px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -103,17 +124,15 @@
 
       <div class="field-guide-card">
         <div class="fg-step">
-          <div class="fg-step-label">1. What kind of coaching day is this?</div>
+          <div class="fg-step-label">What kind of coaching day is this?</div>
           <div class="fg-daytype-grid" id="fg-daytype-grid" role="group" aria-label="Coaching day type"></div>
-        </div>
-        <div class="fg-step" id="fg-model-step" style="display: none;">
-          <div class="fg-step-label">2. How are you coaching today?</div>
-          <div class="fg-model-grid" id="fg-model-grid" role="group" aria-label="Coaching model"></div>
         </div>
         <div id="fg-result"></div>
       </div>
     </div>
   </section>
+
+  <div id="print-guide" class="print-guide-page"></div>
 
   <section class="section" id="close-the-loop" style="padding-top: 0;">
     <div class="section-inner">
@@ -193,8 +212,8 @@
 
   <footer class="site-footer">Prisms Coach Hub · Internal · Last updated July 2026</footer>
 
-  <script src="assets/coach-field-guide-data.js?v=5"></script>
-  <script src="assets/coach-field-guide.js?v=4"></script>
+  <script src="assets/coach-field-guide-data.js?v=6"></script>
+  <script src="assets/coach-field-guide.js?v=5"></script>
   <script src="assets/search-index.js?v=2"></script>
   <script src="assets/search.js"></script>
   <script src="assets/nav.js?v=2"></script>
