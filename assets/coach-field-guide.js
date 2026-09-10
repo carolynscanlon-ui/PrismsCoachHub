@@ -97,34 +97,41 @@
         '</ul></div>';
     }
 
-    var html = '';
-    html += '<div class="print-brand">Prisms Coach Hub</div>';
-    html += '<h1>' + escapeHtml(dayDef.label) + '</h1>';
-    html += textSection('Purpose', g.purpose);
-    html += textSection('Coach Role', g.coachRole);
-    html += textSection('Teacher Role', g.teacherRole);
-    html += textSection('What Success Looks Like', g.success);
+    var body = '';
+    body += textSection('Purpose', g.purpose);
+    body += textSection('Coach Role', g.coachRole);
+    body += textSection('Teacher Role', g.teacherRole);
+    body += textSection('What Success Looks Like', g.success);
 
-    html += listSection('Before the Visit', before);
-    html += listSection('During the Lesson', during);
+    body += listSection('Before the Visit', before);
+    body += listSection('During the Lesson', during);
 
     if (lookForGood.length || lookForWatch.length) {
-      html += '<div class="print-section"><h2>What to Look and Listen For</h2>';
-      if (lookForGood.length) html += '<p class="print-sublabel">Signs it&rsquo;s going well</p><ul>' + lookForGood.map(function (i) { return '<li>' + escapeHtml(i) + '</li>'; }).join('') + '</ul>';
-      if (lookForWatch.length) html += '<p class="print-sublabel">Watch for</p><ul>' + lookForWatch.map(function (i) { return '<li>' + escapeHtml(i) + '</li>'; }).join('') + '</ul>';
-      html += '</div>';
+      body += '<div class="print-section"><h2>What to Look and Listen For</h2>';
+      if (lookForGood.length) body += '<p class="print-sublabel">Signs it&rsquo;s going well</p><ul>' + lookForGood.map(function (i) { return '<li>' + escapeHtml(i) + '</li>'; }).join('') + '</ul>';
+      if (lookForWatch.length) body += '<p class="print-sublabel">Watch for</p><ul>' + lookForWatch.map(function (i) { return '<li>' + escapeHtml(i) + '</li>'; }).join('') + '</ul>';
+      body += '</div>';
     }
 
-    html += listSection('After the Visit', after);
+    body += listSection('After the Visit', after);
 
     if (h.examples && h.examples.length) {
-      html += '<div class="print-section"><h2>Concrete Examples</h2>' +
+      body += '<div class="print-section"><h2>Concrete Examples</h2>' +
         h.examples.map(function (ex) {
           return '<p><strong>If ' + escapeHtml(ex.if) + '</strong> — ' + escapeHtml(ex.then) + '</p>';
         }).join('') +
         '</div>';
     }
 
+    // Header spans the full page width; everything else flows in two
+    // print columns so a full guide fits on one page (or breaks cleanly
+    // at a section boundary onto a second) without shrinking the text.
+    var html = '';
+    html += '<div class="print-header">';
+    html += '<div class="print-brand">Prisms Coach Hub</div>';
+    html += '<h1>' + escapeHtml(dayDef.label) + '</h1>';
+    html += '</div>';
+    html += '<div class="print-columns">' + body + '</div>';
     return html;
   }
 
